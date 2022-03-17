@@ -22,11 +22,20 @@ namespace Datum01
             
 
             string s = textBox1.Text;
-            char[] separators = { ' ', ';' };
-            string[] stringsplit = s.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            DateTime narozen = DateTime.Parse(textBox1.Text);
-            DateTime dnes = DateTime.Today;
+            string datum = string.Empty;
+            
 
+          for(int i = 0; i < textBox1.Lines.Count(); i++)
+            {
+
+            
+                char[] separators = { ' ', ';' };
+                string[] pole = s.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+                datum = pole[2];
+
+            }
+            MessageBox.Show(datum);
+           
 
         }
     }

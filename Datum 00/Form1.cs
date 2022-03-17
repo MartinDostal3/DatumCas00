@@ -148,11 +148,19 @@ namespace Datum_00
 
             DateTime dt1 = DateTime.Parse(textBox4.Text);
             DateTime dt2 = DateTime.Parse(textBox5.Text);
-
-
+            TimeSpan doba = dt2 - dt1;
+            MessageBox.Show("Uplynulá doba: " + doba.TotalDays.ToString());
+            MessageBox.Show("Uplynulá doba: " + doba.Minutes.ToString());
+            MessageBox.Show("Uplynulá doba: " + doba.Seconds.ToString());
 
             //long x = TimeSpan.TicksPerSecond;
             //MessageBox.Show(x.ToString());
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            DateTime dt = dateTimePicker1.Value;
+            MessageBox.Show(dt.ToShortDateString());
         }
     }
 }
