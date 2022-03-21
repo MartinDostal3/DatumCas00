@@ -162,5 +162,17 @@ namespace Datum_00
             DateTime dt = dateTimePicker1.Value;
             MessageBox.Show(dt.ToShortDateString());
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+            label2.Text = DateTime.Now.ToString("hh:mm:ss");
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
+            label2.Text = DateTime.Now.ToString("hh:mm:ss");
+        }
     }
 }
