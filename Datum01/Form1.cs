@@ -21,17 +21,34 @@ namespace Datum01
         {
 
 
-            string s = textBox1.Text;
+           string s = textBox1.Text;
+            DateTime nejstarsi = new DateTime();
             char[] separators = { ' ', ';' };
-            string[] stringsplit = s.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            DateTime nejstarsi = DateTime.Today.AddDays(1);
-            for (int i = 0; i < stringsplit.Length; ++i)
+            for (int i = 0; i < textBox1.Lines.Count(); ++i)
             {
-                //if(stringsplit[i]<nejstarsi)
+                string[] stringsplit = s.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+
+               
+                DateTime x = DateTime.Parse(textBox1.Lines[i]);
+
+                    if (x > nejstarsi)
+                    {
+                        nejstarsi = x;
+                    }
+            
+                
+
             }
-            MessageBox.Show("Datum nejstarší osoby je: ");
+            MessageBox.Show("Datum nejstarší osoby je: " + nejstarsi);
+
+
+                
+
+            }
+            
 
 
         }
     }
-}
+
+
