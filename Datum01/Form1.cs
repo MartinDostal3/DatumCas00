@@ -19,23 +19,18 @@ namespace Datum01
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
 
             string s = textBox1.Text;
-            string datum = string.Empty;
-            
-
-          for(int i = 0; i < textBox1.Lines.Count(); i++)
+            char[] separators = { ' ', ';' };
+            string[] stringsplit = s.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            DateTime nejstarsi = DateTime.Today.AddDays(1);
+            for (int i = 0; i < stringsplit.Length; ++i)
             {
-
-            
-                char[] separators = { ' ', ';' };
-                string[] pole = s.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-                datum = pole[2];
-
+                //if(stringsplit[i]<nejstarsi)
             }
-            MessageBox.Show(datum);
-           
+            MessageBox.Show("Datum nejstarší osoby je: ");
+
 
         }
     }
