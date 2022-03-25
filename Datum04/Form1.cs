@@ -32,8 +32,10 @@ namespace Datum04
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int n = int.Parse(textBox1.Text);
+            DateTime datum = dateTimePicker1.Value;
 
-            MessageBox.Show(ZarukaRoky(DateTime.Parse("1.3.2020"), 2).ToString());
+            MessageBox.Show(ZarukaRoky(datum, n).ToString());
 
 
         }
