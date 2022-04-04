@@ -21,30 +21,31 @@ namespace Datum01
         {
 
 
-           string s = textBox1.Text;
-            DateTime nejstarsi = new DateTime();
-            char[] separators = { ' ', ';' };
-            for (int i = 0; i < textBox1.Lines.Count(); ++i)
+            string s = textBox1.Text;
+            char[] separators = { ' ', ';', ',' };
+            string[] splitedS = s.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            DateTime nejstarsi = DateTime.Today.AddDays(1);
+            int i = 0;
+            while (i < splitedS.Length)
             {
-                string[] stringsplit = s.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-
-               
-                DateTime x = DateTime.Parse(textBox1.Lines[i]);
-
-                    if (x > nejstarsi)
+                string slovo = splitedS[i];
+                if (char.IsNumber(slovo[0]))
+                {
+                    DateTime stringNaDate = DateTime.Parse(slovo);
+                    if (stringNaDate < nejstarsi)
                     {
-                        nejstarsi = x;
+                        nejstarsi = stringNaDate;
                     }
-            
-                
-
+                    ++i;
+                }
+                else ++i;
             }
-            MessageBox.Show("Datum nejstarší osoby je: " + nejstarsi);
+            MessageBox.Show("Nejstarší je: " + nejstarsi.ToShortDateString());
 
 
-                
 
-            }
+
+        }
             
 
 
